@@ -1,0 +1,47 @@
+{
+  "horreur": [
+    {
+      "titre": "The Conjuring",
+      "annee": 2013,
+      "realisateur": "James Wan",
+      "description": "Des enquêteurs paranormaux aident une famille terrorisée par une présence maléfique dans leur maison",
+      "image": "https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg"
+    }
+  ],
+  "action": [
+    {
+      "titre": "Mad Max: Fury Road",
+      "annee": 2015,
+      "realisateur": "George Miller",
+      "description": "Dans un désert post-apocalyptique, Max aide une rebelle à échapper à un tyran.",
+      "image": "https://image.tmdb.org/t/p/w440_and_h660_face/oLy2V6AWSEfdPgKOtrSGnwB3Q2R.jpg"
+    }
+  ],
+  "sciencefiction": [
+    {
+      "titre": "Blade Runner 2049",
+      "annee": 2017,
+      "realisateur": "Denis Villeneuve",
+      "description": "Un blade runner découvre un secret qui pourrait plonger la société dans le chaos.",
+      "image": "https://image.tmdb.org/t/p/w1280/qWD9E0Wgn8w6nMMutCNFAUiSHrX.jpg"
+    }
+  ],
+  "fantasy": [
+    {
+      "titre": "The Lord of the Rings: The Fellowship of the Ring",
+      "annee": 2001,
+      "realisateur": "Peter Jackson",
+      "description": "Un hobbit entreprend un voyage périlleux pour détruire un anneau maléfique.",
+      "image": "https://image.tmdb.org/t/p/w1280/5OPg6M0yHr21Ovs1fni2H1xpKuF.jpg"
+    }
+  ],
+  "drame": [
+    {
+      "titre": "The Shawshank Redemption",
+      "annee": 1994,
+      "realisateur": "Frank Darabont",
+      "description": "L'histoire d'un banquier condamné à perpétuité qui trouve l'espoir en prison.",
+      "image": "https://image.tmdb.org/t/p/w1280/t30GjttOdb5At1sYy8b3TOwFgWV.jpg"
+    }
+  ]
+}
