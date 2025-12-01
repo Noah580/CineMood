@@ -1,25 +1,32 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import films from "../Data/films.json";
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 
-const { width } = Dimensions.get('window'); // Pour adapter la taille de l'image à l'écran
+const { width } = Dimensions.get("window"); // Pour adapter la taille de l'image à l'écran
 
 export default function ActionScreen() {
   const navigation = useNavigation();
   const movie = films.fantasy[0]; // On garde la logique d'accès au premier film
 
+  const [favorite, setFavorite] = useState(false);
+
   return (
     <View style={styles.mainContainer}>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        
         {/* Affiche du film avec une ombre */}
         <View style={styles.imageContainer}>
-          <Image
-            source={{ uri: movie.image }}
-            style={styles.poster}
-          />
+          <Image source={{ uri: movie.image }} style={styles.poster} />
         </View>
 
         {/* Informations du film */}
@@ -29,9 +36,9 @@ export default function ActionScreen() {
             <Text style={styles.directorLabel}>Réalisé par </Text>
             <Text style={styles.directorName}>{movie.realisateur}</Text>
           </View>
-          
+
           <View style={styles.divider} />
-          
+
           <Text style={styles.description}>{movie.description}</Text>
         </View>
 
@@ -45,6 +52,22 @@ export default function ActionScreen() {
           <Text style={styles.backButtonText}>Revenir en arrière</Text>
         </TouchableOpacity>
 
+        <TouchableOpacity
+          style={[
+            styles.LikeButton,
+            {
+              backgroundColor: favorite ? "#9370DB" : "none",
+              borderWidth : favorite ? 0 : 1,
+              borderColor: "white",
+              borderStyle: "solid"
+            },
+          ]}
+          onPress={() => {
+            setFavorite((prev) => !prev);
+          }}
+        >
+          <Text style={[styles.backButtonText, {color: favorite ? "white" : "#9370DB"}]}>Liker ce Film</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
@@ -70,7 +93,7 @@ const styles = StyleSheet.create({
   },
   poster: {
     width: width * 0.7, // 70% de la largeur de l'écran
-    height: (width * 0.7) * 1.5, // Ratio classique d'affiche de cinéma
+    height: width * 0.7 * 1.5, // Ratio classique d'affiche de cinéma
     borderRadius: 15,
   },
   infoContainer: {
@@ -124,5 +147,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     textTransform: "uppercase",
+  },
+  LikeButton: {
+    marginTop: 20,
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 25,
   },
 });
