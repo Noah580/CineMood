@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import films from "../Data/films.json";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
+import ReviewSection from '../components/Comment';
 
 const { width } = Dimensions.get("window"); // Pour adapter la taille de l'image à l'écran
 
@@ -72,6 +73,8 @@ export default function ActionScreen() {
         </TouchableOpacity>
 
         <Text style={styles.directorName}>{confirmation ? "Vous l'avez ajouter au favoris" : " "}</Text>
+
+        <ReviewSection></ReviewSection>
       </ScrollView>
     </View>
   );

@@ -6,12 +6,13 @@ import {
   Image,
   ScrollView,
   Dimensions,
+  TextInput
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import films from "../Data/films.json";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { Ionicons } from "@expo/vector-icons";
+import ReviewSection from '../components/Comment';
 
 const { width } = Dimensions.get("window"); // Pour adapter la taille de l'image à l'écran
 
@@ -21,6 +22,7 @@ export default function ActionScreen() {
 
   const [favorite, setFavorite] = useState(false);
   const [confirmation, showConfirmation] = useState(false);
+
 
   return (
     <View style={styles.mainContainer}>
@@ -73,6 +75,9 @@ export default function ActionScreen() {
         </TouchableOpacity>
 
         <Text style={styles.directorName}>{confirmation ? "Vous l'avez ajouter au favoris" : " "}</Text>
+
+        <ReviewSection></ReviewSection>
+
       </ScrollView>
     </View>
   );
