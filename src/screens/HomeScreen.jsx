@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import GenrePicker from '../components/GenrePicker'
 
 export default function HomeScreen() {
   return (
-    <View>
+    <View style={{ flex: 1 }}> 
       <GenrePicker/>
     </View>
   );

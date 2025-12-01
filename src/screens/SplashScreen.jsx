@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { useEffect, useRef } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Animated } from 'react-native';
+import { StyleSheet, Text, View, Animated, ActivityIndicator } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 export default function SplashScreen() {
 
@@ -24,33 +24,64 @@ export default function SplashScreen() {
   }, []);
 
   return (
-    <Animated.View style={[styles.Container, {opacity: fadeAnimation}]}>
-      <Text style={styles.TextTitle}>Cinémood</Text>
-      <Text style={styles.TextCenter}>Chargement...</Text>
+    <Animated.View style={[styles.container, {opacity: fadeAnimation}]}>
+      <StatusBar style="light" />
+      <View style={styles.content}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.textTitle}>CINÉMOOD</Text>
+          <View style={styles.separator} />
+        </View>
+        
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#ffffff" />
+          <Text style={styles.textLoading}>Chargement...</Text>
+        </View>
+      </View>
     </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
-  Container:{
+  container: {
     flex: 1,
     backgroundColor: "#0B132B",
-    height: 1000,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
     alignItems: "center",
     justifyContent: "center",
   },
-  TextTitle:{
-    color: "white",
-    top: -300,
-    fontSize: 40,
-    border: "white",
-    borderWidth: 3,
-    borderStyle: "solid",
-    padding: 10,
-    borderColor: "white"
+  titleContainer: {
+    alignItems: "center",
+    marginBottom: 50, // Espace entre le titre et le chargement
   },
-  TextCenter:{
+  textTitle: {
     color: "white",
-    fontSize: 30
+    fontSize: 48,
+    fontWeight: "900", // Très gras pour l'impact
+    letterSpacing: 2, // Espacement des lettres style cinéma
+    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+  },
+  separator: {
+    height: 4,
+    width: 100,
+    backgroundColor: "#DC143C", // Une touche de rouge cinéma (optionnel, accordé à ton GenrePicker)
+    marginTop: 10,
+    borderRadius: 2,
+  },
+  loadingContainer: {
+    alignItems: "center",
+    gap: 10, // Espace entre le spinner et le texte (React Native moderne)
+  },
+  textLoading: {
+    color: "#8D99AE", // Un gris clair plus doux que le blanc pur
+    fontSize: 16,
+    fontWeight: "500",
+    marginTop: 10,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
   }
-})
+});
