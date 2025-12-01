@@ -20,6 +20,7 @@ export default function ActionScreen() {
   const movie = films.horreur[0]; // On garde la logique d'accès au premier film
 
   const [favorite, setFavorite] = useState(false);
+  const [confirmation, showConfirmation] = useState(false);
 
   return (
     <View style={styles.mainContainer}>
@@ -65,10 +66,13 @@ export default function ActionScreen() {
           ]}
           onPress={() => {
             setFavorite((prev) => !prev);
+            showConfirmation((prev) => !prev)
           }}
         >
           <Text style={[styles.backButtonText, {color: favorite ? "white" : "#DC143C"}]}>Liker ce Film</Text>
         </TouchableOpacity>
+
+        <Text style={styles.directorName}>{confirmation ? "Vous l'avez ajouter au favoris" : " "}</Text>
       </ScrollView>
     </View>
   );
